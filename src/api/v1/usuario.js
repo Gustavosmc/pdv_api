@@ -31,7 +31,6 @@ export default (config, db, api, authorization) => {
         }
       })
       .catch(error => {
-        db.Log.saveMessage(error.message, 0);
         res.status(500).json({
           message: "Erro ao realizar login",
           error: error.message,
