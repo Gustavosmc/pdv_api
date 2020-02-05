@@ -1,0 +1,417 @@
+{
+	"info": {
+		"_postman_id": "1194b95b-cc5a-4999-9048-2fd4b72a11ed",
+		"name": "dc_mardey",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Realizar Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Authorization",
+						"value": "kadsfasjdkfaskldfashd323",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"usuario\": \"gustavosmc\",\n\t\"senha\": \"gustavosmc\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Usuario",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "kadsfasjdkfaskldfashd323",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Gestores",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "kadsfasjdkfaskldfashd323"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_equipamento\" : \"PC001\", \n    \"fazenda\" : \"Fazenda Jardim\", \n    \"id_icrop\" : \"APK489\",\n    \"senha_icrop\": \"asdjfalksd\",\n    \"equipamento\": \"ABB\",\n    \"potencia_transf\": 300, \n    \"tensao_corrente\": 500,\n    \"transf_potencia1\": 380,\n    \"transf_potencia2\": 220,\n    \"potencia_instalada\": 500, \n    \"soma_cargas\": 300, \n    \"soma_kwa\": 400,\n    \"horario_reservado\": true,\n    \"horario_reservado_inicio\": \"21:30:00\", \n    \"horario_reservado_fim\": \"06:00:00\", \n    \"horario_ponta_inicio\": \"17:00:00\",\n    \"horario_ponta_duracao\": \"03:00:00\",\n    \"regiao\": \"Chapada Gaucha\", \n    \"cliente\": \"Carlos\",\n    \"intermediante\": \"Roberto Carlos\",\n    \"nome_bombeamento\": \"Bombeamento 2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/gestores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"gestores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Usuario",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "kadsfasjdkfaskldfashd323"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Lorena Ribeiro\",\n\t\"email\": \"lorena@gmail.com\",\n\t\"senha\": \"lorena\",\n\t\"usuario\": \"lorena\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios"
+					],
+					"query": [
+						{
+							"key": "",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Usuario",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "kadsfasjdkfaskldfashd323"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"nome\": \"Roberto Leal\",\n\t\"email\": \"roberto@gmail.com\",\n\t\"senha\": \"roberto\",\n\t\"usuario\": \"roberto\",\n\t\"token\": \"lasdkfjasdklfajsdf\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/usuarios/8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"usuarios",
+						"8"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Atualizar Gestor",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "kadsfasjdkfaskldfashd323"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_equipamento\" : \"PC001\", \n    \"fazenda\" : \"Fazenda Jardim\", \n    \"id_icrop\" : \"APK489\",\n    \"senha_icrop\": \"asdjfalksd\",\n    \"equipamento\": \"ABB\",\n    \"potencia_transf\": 300, \n    \"tensao_corrente\": 500,\n    \"transf_potencia1\": 380,\n    \"transf_potencia2\": 220,\n    \"potencia_instalada\": 500, \n    \"soma_cargas\": 300, \n    \"soma_kwa\": 400,\n    \"horario_reservado\": true,\n    \"horario_reservado_inicio\": \"21:30:00\", \n    \"horario_reservado_fim\": \"06:00:00\", \n    \"horario_ponta_inicio\": \"17:00:00\",\n    \"horario_ponta_duracao\": \"03:00:00\",\n    \"regiao\": \"Chapada Gaucha\", \n    \"cliente\": \"Carlos\",\n    \"intermediante\": \"Roberto Carlos\",\n    \"nome_bombeamento\": \"Bombeamento 2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/gestores/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"gestores",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Excluir Gestor",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "kadsfasjdkfaskldfashd323"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_equipamento\" : \"PC001\", \n    \"fazenda\" : \"Fazenda Jardim\", \n    \"id_icrop\" : \"APK489\",\n    \"senha_icrop\": \"asdjfalksd\",\n    \"equipamento\": \"ABB\",\n    \"potencia_transf\": 300, \n    \"tensao_corrente\": 500,\n    \"transf_potencia1\": 380,\n    \"transf_potencia2\": 220,\n    \"potencia_instalada\": 500, \n    \"soma_cargas\": 300, \n    \"soma_kwa\": 400,\n    \"horario_reservado\": true,\n    \"horario_reservado_inicio\": \"21:30:00\", \n    \"horario_reservado_fim\": \"06:00:00\", \n    \"horario_ponta_inicio\": \"17:00:00\",\n    \"horario_ponta_duracao\": \"03:00:00\",\n    \"regiao\": \"Chapada Gaucha\", \n    \"cliente\": \"Carlos\",\n    \"intermediante\": \"Roberto Carlos\",\n    \"nome_bombeamento\": \"Bombeamento 2\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/gestores/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"gestores",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Criar Gestor",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "kadsfasjdkfaskldfashd323"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id_equipamento\" : \"PC001\", \n    \"fazenda\" : \"Fazenda do Zé\", \n    \"id_icrop\" : \"dadsfsda\",\n    \"senha_icrop\": \"asdjfaflksd\",\n    \"equipamento\": \"Siemens\",\n    \"potencia_transf\": 300, \n    \"tensao_corrente\": 500,\n    \"transf_potencia1\": 380,\n    \"transf_potencia2\": 220,\n    \"potencia_instalada\": 500, \n    \"soma_cargas\": 300, \n    \"soma_kwa\": 400,\n    \"horario_reservado\": true,\n    \"horario_reservado_inicio\": \"21:30:00\", \n    \"horario_reservado_fim\": \"06:00:00\", \n    \"horario_ponta_inicio\": \"17:00:00\",\n    \"horario_ponta_duracao\": \"03:00:00\",\n    \"regiao\": \"Chapada Gaucha\", \n    \"cliente\": \"Carlos\",\n    \"intermediante\": \"Roberto Carlos\",\n    \"nome_bombeamento\": \"Bombeamento 01\",\n    \"status\": 1\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/gestores",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"gestores"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Buscar Coletas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "kadsfasjdkfaskldfashd323"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/coletas?gestorId=1&dataInicial=2019-09-29&dataFinal=2019-09-30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"coletas"
+					],
+					"query": [
+						{
+							"key": "gestorId",
+							"value": "1"
+						},
+						{
+							"key": "dataInicial",
+							"value": "2019-09-29"
+						},
+						{
+							"key": "dataFinal",
+							"value": "2019-09-30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"type": "text",
+						"value": "kadsfasjdkfaskldfashd323"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "uploaded_file",
+							"contentType": "text/csv",
+							"type": "file",
+							"src": ""
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/v1/coletas/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"v1",
+						"coletas",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
