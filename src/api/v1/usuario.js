@@ -120,7 +120,7 @@ export default (config, db, api, authorization) => {
   api.get("/usuario", authorization, (req, res) => {
     Usuario.findOne({ where: { id: req.userId, status: status.ATIVO } })
       .then(usuario => {
-        res.status(HttpStatus.NO_CONTENT).json();
+        res.status(HttpStatus.OK).json(usuario);
       })
       .catch(error => {
         res
