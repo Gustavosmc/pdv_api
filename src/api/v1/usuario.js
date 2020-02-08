@@ -24,7 +24,7 @@ export default (config, db, api, authorization) => {
       .then(usuario => {
         if (usuario && Usuario.validPassword(pass, usuario)) {
           usuario.token = jwt.sign({ id: usuario.id }, process.env.SECRET, {
-            expiresIn: "1d",
+            expiresIn: "8h",
           });
           res.status(HttpStatus.OK).json(usuario);
         } else {
