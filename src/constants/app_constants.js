@@ -5,7 +5,6 @@ export const logStatus = {
     LOG_FAIL:            3,
 }
 
-
 export const status = {
     INATIVO: 0,
     ATIVO  : 1

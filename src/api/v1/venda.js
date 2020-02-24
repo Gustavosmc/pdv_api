@@ -6,7 +6,7 @@ export default (config, db, api, authorization) => {
     const Venda = db.Venda
     const createFilter = []
     const getFilter = createFilter.concat(['id'])
-    const updateFilter = ['tipo_pagamento', 'valor_credito', 'valor_debito', 'valor_dinheiro', 'desconto']
+    const updateFilter = ['tipo_pagamento', 'valor_credito', 'valor_debito', 'valor_dinheiro', 'desconto', 'status', 'total', 'troco']
 
      // Create
     api.post('/vendas', authorization, async (req, res) => {
@@ -31,7 +31,8 @@ export default (config, db, api, authorization) => {
     // Update venda com status em ANDAMENTO
     api.put('/vendas/:id', authorization, async (req, res) => {
         filterKeys(req.body, updateFilter)
-        tryAwait(Venda.update(req.body, {where: {id: req.params.id, status: vendaStatus.ANDAMENTO}}), res, dbActions.UPDATE)
+        const venda = await Venda.findOne({where: {id: req.params.id, status: vendaStatus.ANDAMENTO}})
+        tryAwait(venda.update(req.body), res, dbActions.UPDATE)
     })
     
 }

@@ -46,7 +46,7 @@ export const tryAwait = async ( untilGetResult, res, type='') => {
           res.status(HttpStatus.CREATED).json(data)
           break
         case 'update':
-          res.status(HttpStatus.OK).json({updated: data[0]})
+          res.status(HttpStatus.OK).json(data)
           break
         case 'delete':
           res.status(HttpStatus.OK).json({deleted: data[0]})

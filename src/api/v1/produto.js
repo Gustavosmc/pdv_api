@@ -25,6 +25,7 @@ export default (config, db, api, authorization) => {
     // Update 
     api.put('/produtos/:id', authorization, permission(db, nivelPermissao.MEDIO), async (req, res) => {
         filterKeys(req.body, updateFilter)
-        tryAwait(Produto.update(req.body, {where: {id: req.params.id}}), res, dbActions.UPDATE)
+        const produto = await Produto.findOne({where: {id: req.params.id}})
+        tryAwait(produto.update(req.body), res, dbActions.UPDATE)
     })
 }
