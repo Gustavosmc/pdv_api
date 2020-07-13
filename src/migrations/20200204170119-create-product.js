@@ -1,44 +1,58 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Produtos', {
+    return queryInterface.createTable('Products', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
-      descricao: {
+      name: {
         type: Sequelize.STRING(80),
         allowNull: false,
       },
-      preco: {
+      price: {
         type: Sequelize.DOUBLE,
         allowNull: false,
         defaultValue: 0
       },
-      foto: {
-        type: Sequelize.STRING(140),
+      image: {
+        type: Sequelize.STRING(255),
+        allowNull: false,
       },
-      preco_variavel: {
+      variable_price: {
         type: Sequelize.BOOLEAN,
         allowNull: false,
         defaultValue: false
       },
-      tipo: {
-        type: Sequelize.TINYINT,
+      type: {
+        type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 1
       },
-      estoque: {
+      stock: {
         type: Sequelize.DOUBLE,
         allowNull: false,
         defaultValue: 0
       },
+      favorite: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
       status: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 1
+      },
+      tenant_id: {
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        references: {        
+          model: 'Tenants',
+          key: 'id'
+        }
       },
       createdAt: {
         allowNull: false,
@@ -53,6 +67,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Produtos');
+    return queryInterface.dropTable('Products');
   }
 };

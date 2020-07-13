@@ -2,19 +2,19 @@
   "development": {
     "username": "root",
     "password": "root",
-    "database": "pdv_database",
+    "database": "pdvdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
     "password": "root",
-    "database": "pdv_database",
+    "database": "pdvdb",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
-    "username": "pdv_database",
+    "username": "",
     "password": null,
     "database": "pdv_database",
     "host": "127.0.0.1",

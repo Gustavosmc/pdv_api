@@ -1,44 +1,46 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('ProdutoVendas', {
+    return queryInterface.createTable('Tenants', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.BIGINT
       },
-      produto_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {        
-          model: 'Produtos',
-          key: 'id'
-        }
-      },
-      venda_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {        
-          model: 'Vendas',
-          key: 'id'
-        }
-      },
-      descricao: {
-        type: Sequelize.STRING(80),
-        allowNull: false,
-      },
-      valor: {
-        type: Sequelize.DOUBLE,
-        allowNull: false,
-      },
-      codigo: {
+      name: {
         type: Sequelize.STRING(140),
+        allowNull: false,
+      },
+      current_update: {
+        type: Sequelize.BIGINT,
+        allowNull: false,
+        defaultValue: 0
+      },
+      user_limit: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 9999
+      },
+      tenant_code: {
+        type: Sequelize.STRING(10),
         allowNull: false,
         unique: true
       },
+      contract_expires: {
+        type: Sequelize.DATE,
+      },
+      location: {
+        type: Sequelize.STRING(255),
+        allowNull: false,
+        defaultValue: ""
+      },
+      domain: {
+        type: Sequelize.STRING,
+        allowNull: false,
+      },
       status: {
-        type: Sequelize.TINYINT,
+        type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 1
       },
@@ -55,6 +57,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('ProdutoVendas');
+    return queryInterface.dropTable('Tenants');
   }
 };

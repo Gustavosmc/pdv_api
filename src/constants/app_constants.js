@@ -6,38 +6,38 @@ export const logStatus = {
 }
 
 export const status = {
-    INATIVO: 0,
-    ATIVO  : 1
+    INACTIVE: 0,
+    ACTIVE  : 1
 }
 
-export const tipoProduto = {
-    COMIDA: 1,
-    BEBIDA: 2
+export const productType = {
+    FOOD: 1,
+    DRINK: 2
 }
 
-export const nivelPermissao = {
-    BAIXO: 1, // Vendedor, realizar vendas
-    MEDIO: 2, // Adicionar novos produtos
-    ALTO:  3, // Adicionar novos usuarios
+export const permission = {
+    SLOW:  1, // Vendedor, realizar vendas
+    MEDIUM: 2, // Gerenciar produtos
+    HIGH:  3, // Adicionar novos usuarios
 }
 
-export const tipoPagamento = {
-    DINHEIRO: 1, 
-    CREDITO : 2, 
-    DEBITO  : 3,
-    DINHEIRO_CREDITO: 4,
-    DINHEIRO_DEBITO: 5,
-    CREDITO_DEBITO: 6,
-    CREDITO_DEBITO_DINHEIRO: 7,
-    CORTESIA: 8
+export const paymentType = {
+    MONEY: 1, 
+    CREDIT : 2, 
+    DEBT  : 3,
+    MONEY_CREDIT: 4,
+    MONEY_DEBT: 5,
+    CREDIT_DEBT: 6,
+    CREDIT_DEBT_MONEY: 7,
+    COURTESY: 8
 }
 
-export const vendaStatus = {
-    CANCELADA: 0, // Venda fechada por algum motivo
-    ANDAMENTO: 1, // Venda ainda esta em andamento
-    RECEBIDA: 2,  // Pagamento foi recebido, tickets entregues
-    FINALIZADA: 3,// Todos os produtos ja foram entregues
-    CONTABILIZADA: 4 // Foi fechada no relatorio de caixa
+export const saleStatus = {
+    CANCELED: 0, // Venda fechada por algum motivo
+    PROGRESS: 1, // Venda ainda esta em andamento
+    RECEIVED: 2,  // Pagamento foi recebido, tickets entregues
+    FINISHED: 3,// Todos os produtos ja foram entregues
+    REPORTED: 4 // Foi fechada no relatorio de caixa
 }
 
 

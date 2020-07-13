@@ -1,20 +1,20 @@
 'use strict';
-var Usuario = require('../models/index').Usuario
-
+const randomstring = require('randomstring')
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Usuarios', [
+    return queryInterface.bulkInsert('Tenants', [
       {
-        nome: 'Luiz Gustavo Santos',
-        usuario: 'gustavosmc',
-        nivel_permissao: 3,
-        status: 1,
-        senha: `${Usuario.generateHash('gustavosmc')}`,
-        email: 'luizgustavosmc@gmail.com',
+        name: "Festa Teste",
+        location: 'Unaí-MG Fazenda Tamboril',
+        domain: 'localhost:3000',
+        tenant_code: randomstring.generate(10),
         updatedAt: Sequelize.literal('NOW()'),
         createdAt: Sequelize.literal('NOW()')
       }
-    ], {});
+    ], {
+      validate: true, 
+      individualHooks: true,
+    });
   },
 
   down: (queryInterface, Sequelize) => {
