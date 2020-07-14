@@ -42,10 +42,20 @@ export default (db, api) => {
     })
 
     api.put('/sales/:id', authorization, permission(db, permissions.HIGH), async (req, res) => {
+        const transaction = await db.sequelize.transaction();
         try{
             const sale = await Sale.findOne({where: {id: req.params.id,  tenant_id: req.tenant}})
-            tryAwait(sale.update(req.body), res, dbActions.UPDATE)
+            const products = req.body.products
+            if(products && products.length > 0){
+                for(let i = 0; i < products.length; i+=1) {
+                    await db.ProductSale.create({...products[i], sale_id: sale.id, tenant_id: req.tenant}, {transaction})
+                }
+            }
+            await sale.update(req.body, {transaction})
+            transaction.commit()
+            res.status(200).json(sale)
         }catch(error) {
+            transaction.rollback()
             res.status(400).json({message: 'Failed to update sale'})
         }
     })

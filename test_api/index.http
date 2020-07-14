@@ -127,7 +127,15 @@ content-type: application/json
   "discount": 10,
   "money_amount": 50,
   "credit_amount": 50,
-  "debt_amount": 50
+  "debt_amount": 50,
+  "products": [
+        {
+            "description": "Coca cola",
+            "quantity": 10,
+            "price": 2.5,
+            "product_id": 1
+        }
+    ]
 }
 
 ### Sales - Delete
