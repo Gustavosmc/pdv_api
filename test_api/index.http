@@ -1,0 +1,138 @@
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjoxLCJ0ZW5hbnQiOjEsImlhdCI6MTU5NDY3NzEzOSwiZXhwIjoxNTk1MjgxOTM5fQ.yClp8Wj7XCDEe1UcJFb8Uomnp07G6fCsuWG-I6RkVJI
+@tenant_token = YOWQSlWbgr
+@url = http://localhost:3000/api/v1
+
+### Api Version
+GET {{url}}
+content-type: application/json
+
+// Tenants
+
+### Tenant - Get all Tennants
+GET {{url}}/tenants
+Authorization: {{token}}
+
+### Tennants - Validate tenant
+GET {{url}}/tenants/{{{tenant_token}}}
+
+// Users
+
+### Users - Login
+POST {{url}}/users/login
+content-type: application/json
+
+{
+    "username": "gustavosmc",
+    "password": "gustavosmc"
+}
+
+### Users - Get All
+GET {{url}}/users/
+Authorization: {{token}}
+
+### Users - Get User Logged
+GET {{url}}/user
+Authorization: {{token}}
+
+### Users - Update User
+PUT {{url}}/users/1
+Authorization: {{token}}
+content-type: application/json
+
+{
+    "name": "Ronaldinho Gaucho"
+}
+
+
+// Products 
+
+### Product - Post
+POST {{url}}/products
+Authorization: {{token}}
+content-type: application/json
+
+{
+    "id": 1,
+    "name": "Coca Cola lata 2003",
+    "price": 2.50,
+    "image": "coca_lata",
+    "variable_price": false,
+    "type": 2,
+    "stock": 20,
+    "favorite": false
+}
+
+
+### Product - Get all
+GET {{url}}/products
+Authorization: {{token}}
+content-type: application/json
+
+
+### Product - Update
+PUT {{url}}/products/1
+Authorization: {{token}}
+content-type: application/json
+
+{
+    "name": "Coca Cola lata 250",
+    "price": 2.70,
+    "image": "coca_lata2",
+    "variable_price": true,
+    "type": 2,
+    "stock": 30,
+    "favorite": true
+}
+
+### Product - Delete
+DELETE {{url}}/products/1
+Authorization: {{token}}
+content-type: application/json
+
+
+// Sales 
+
+### Sales - Post
+POST {{url}}/sales
+Authorization: {{token}}
+content-type: application/json
+
+{
+    "id": 1,
+    "discount": 0,
+    "change": 10,
+    "payment_type": 1,
+    "products": [
+        {
+            "description": "Coca cola",
+            "quantity": 10,
+            "price": 2.5,
+            "product_id": 1
+        }
+    ]
+}
+
+### Sales - Get all
+GET {{url}}/sales
+Authorization: {{token}}
+content-type: application/json
+
+### Sales - Update
+PUT {{url}}/sales/1
+Authorization: {{token}}
+content-type: application/json
+
+{
+  "discount": 10,
+  "money_amount": 50,
+  "credit_amount": 50,
+  "debt_amount": 50
+}
+
+### Sales - Delete
+DELETE {{url}}/sales/1
+Authorization: {{token}}
+content-type: application/json
+
+

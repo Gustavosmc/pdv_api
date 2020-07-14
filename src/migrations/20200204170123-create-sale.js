@@ -13,7 +13,22 @@ module.exports = {
         allowNull: false,
         defaultValue: 0
       },
-      amount: {
+      payment_type: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 1
+      },
+      money_amount: {
+        type: Sequelize.DOUBLE,
+        allowNull: false,
+        defaultValue: 0
+      },
+      credit_amount: {
+        type: Sequelize.DOUBLE,
+        allowNull: false,
+        defaultValue: 0
+      },
+      debt_amount: {
         type: Sequelize.DOUBLE,
         allowNull: false,
         defaultValue: 0
@@ -22,11 +37,6 @@ module.exports = {
         type: Sequelize.DOUBLE,
         allowNull: false,
         defaultValue: 0
-      },
-      payment_type: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        defaultValue: 1
       },
       validate_code: {
         type: Sequelize.STRING(255),

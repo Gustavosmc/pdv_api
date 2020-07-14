@@ -11,6 +11,7 @@ module.exports = {
       name: {
         type: Sequelize.STRING(80),
         allowNull: false,
+        unique: 'unique_name'
       },
       price: {
         type: Sequelize.DOUBLE,
@@ -64,6 +65,12 @@ module.exports = {
         type: Sequelize.DATE,
         defaultValue: Sequelize.literal('NOW()')
       }
+    }, {
+      uniqueKeys: {
+        unique_name: {
+          fields: ['tenant_id', 'name']
+        },
+      },
     });
   },
   down: (queryInterface, Sequelize) => {

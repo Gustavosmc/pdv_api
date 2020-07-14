@@ -1,4 +1,6 @@
 'use strict';
+const randomstring = require('randomstring')
+
 module.exports = (sequelize, DataTypes) => {
   const Sale = sequelize.define('Sale', {
     id: {
@@ -12,7 +14,17 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: 0
     },
-    amount: {
+    money_amount: {
+      type: DataTypes.DOUBLE,
+      allowNull: false,
+      defaultValue: 0
+    },
+    credit_amount: {
+      type: DataTypes.DOUBLE,
+      allowNull: false,
+      defaultValue: 0
+    },
+    debt_amount: {
       type: DataTypes.DOUBLE,
       allowNull: false,
       defaultValue: 0
@@ -28,8 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       defaultValue: 1
     },
     validate_code: {
-      type: DataTypes.STRING(255),
-      allowNull: false,
+      type: DataTypes.STRING(40),
     },
     status: {
       type: DataTypes.INTEGER,
@@ -53,9 +64,11 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.DATE
     }
   }, {});
+
   Sale.associate = function(models) {
     Sale.belongsTo(models.User, {as: 'user', foreignKey: 'user_id'})
-    Sale.hasMany(models.ProductSale, {as: 'product_sales', foreignKey: 'id'})
+    Sale.hasMany(models.ProductSale, 
+      {as: 'product_sales', foreignKey: 'sale_id', onDelete: 'CASCADE'})
     Sale.belongsToMany(models.Product, {
       through: 'ProductSale',
       as: 'products',
@@ -63,6 +76,16 @@ module.exports = (sequelize, DataTypes) => {
       otherKey: 'product_id'
     });
   };
+
+  Sale.prototype.toJSON = function () {
+    var values = Object.assign({}, this.get());
+    delete values.validate_code;
+    return values;
+  }
+
+  Sale.beforeCreate((instance, options) => {
+    instance.validate_code = randomstring.generate(40)
+  })
 
   return Sale;
 };

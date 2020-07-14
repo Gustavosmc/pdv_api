@@ -7,7 +7,7 @@ module.exports = {
       {
         name: 'Luiz Gustavo Santos',
         username: 'gustavosmc',
-        permission: 3,
+        permission: 4,
         password: `${User.generateHash('gustavosmc')}`,
         email: 'luizgustavosmc@gmail.com',
         tenant_id: 1,

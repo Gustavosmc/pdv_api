@@ -63,7 +63,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }, {});
   ProductSale.associate = function(models) {
-    ProductSale.belongsTo(models.Sale, {as: 'sale', foreignKey: 'sale_id'})
+    ProductSale.belongsTo(models.Sale, {as: 'sale', foreignKey: 'sale_id', onDelete: 'CASCADE'})
     ProductSale.belongsTo(models.Product, {as: 'product', foreignKey: 'product_id'})
 
   };
