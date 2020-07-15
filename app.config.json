@@ -1,0 +1,14 @@
+{
+    "apps" : [
+     {
+      "name":  "pdv",
+      "script": "npx",
+      "interpreter": "none",
+      "args": "npm start",
+      "env": {
+         "NODE_ENV": "production"
+      }
+   
+     }
+   ]
+}
