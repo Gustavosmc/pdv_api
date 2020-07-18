@@ -99,7 +99,7 @@ export default (db, api) => {
 
     // Update User
     api.put('/users/:id', authorization, async (req, res) => {
-        filterKeys(req.body, ['username', 'name', 'password', 'status', 'email'])
+        filterKeys(req.body, ['username', 'name', 'password', 'status', 'email', 'preferences'])
         const id = req.params.id
         tryAwait(User.update(req.body, {where: { id, tenant_id: req.tenant}}), res, dbActions.UPDATE)
     })
