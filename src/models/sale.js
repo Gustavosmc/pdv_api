@@ -9,6 +9,11 @@ module.exports = (sequelize, DataTypes) => {
       primaryKey: true,
       type: DataTypes.BIGINT
     },
+    amount: {
+      type: DataTypes.DOUBLE,
+      allowNull: false,
+      defaultValue: 0
+    },
     discount: {
       type: DataTypes.DOUBLE,
       allowNull: false,

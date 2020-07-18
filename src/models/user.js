@@ -37,6 +37,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       defaultValue: 1
     },
+    preferences: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      defaultValue: ''
+    },
     tenant_id: {
       type: DataTypes.BIGINT,
       allowNull: false,
